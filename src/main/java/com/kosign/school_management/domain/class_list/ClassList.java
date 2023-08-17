@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "class_list_tb")
 public class ClassList {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+@GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "class_list_id")
     private Long classListId;
     @Column(name = "student_id")

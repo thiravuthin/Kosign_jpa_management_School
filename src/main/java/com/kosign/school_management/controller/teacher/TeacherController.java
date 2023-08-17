@@ -1,5 +1,6 @@
 package com.kosign.school_management.controller.teacher;
 
+import com.kosign.school_management.domain.teacher.Teacher;
 import com.kosign.school_management.service.teacher.TeacherService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -11,14 +12,27 @@ public class TeacherController {
 
     private final TeacherService teacherService;
 
-    @GetMapping("/teacher")
+    @GetMapping("/get-all-teacher")
     public Object getAllTeacher() {
         return teacherService.getAllTeacher();
     }
 
-    @GetMapping("/get-teacher-by-name-or-id")
-    public Object getTeacherByNameOrId(@PathVariable Integer id){
+    @GetMapping("/get-teacher-by-id/{id}")
+    public Object getTeacherByNameOrId(@PathVariable Long id){
         return teacherService.getById(id);
     }
+
+    @PostMapping("/insert-teacher")
+    public Object insertTeacher(@RequestBody Teacher teacher){
+        return teacherService.insert(teacher);
+    }
+
+    @DeleteMapping("/delete-teacher/{id}")
+    public void deleteTeacher(@PathVariable Long id){
+            teacherService.delete(id);
+    }
+
+//    @PutMapping("/update-teacher")
+//    public
 
 }

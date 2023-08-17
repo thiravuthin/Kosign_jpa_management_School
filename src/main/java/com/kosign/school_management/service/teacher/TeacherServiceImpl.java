@@ -5,6 +5,7 @@ import com.kosign.school_management.payload.TeacherResponse;
 import com.kosign.school_management.repository.TeacherRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -12,17 +13,25 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TeacherServiceImpl implements TeacherService{
 
-
     private final TeacherRepository teacherRepository;
 
-    public List<Teacher> getAllTeacher() {
-    var teachers = teacherRepository.findAll();
-        return teachers;
+    public Object getAllTeacher() {
+        return  teacherRepository.findAll();
     }
 
     @Override
-    public Object getById(Integer id) {
-        return teacherRepository;
+    public Object getById(Long id) {
+        return teacherRepository.findById(id);
+    }
+
+    @Override
+    public Object insert(Teacher teacher) {
+        return teacherRepository.save(teacher);
+    }
+
+    @Override
+    public void delete( Long id) {
+        teacherRepository.deleteById(id);
     }
 }
 

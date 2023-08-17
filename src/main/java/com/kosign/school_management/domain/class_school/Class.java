@@ -37,5 +37,4 @@ public class Class {
 //    @Column(name = "period_time")
 //    private Period periodTime;
 
-
 }

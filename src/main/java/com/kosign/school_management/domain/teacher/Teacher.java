@@ -12,22 +12,23 @@ import lombok.ToString;
 @Setter
 @Getter
 @NoArgsConstructor
+
 public class Teacher {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "teacher_id")
     private Long teacherId;
 
-    @Column(name = "f_name", nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "l_name", nullable = false)
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
     @Column(name = "gender", nullable = false)
     private String gender;
 
-    @Column(name = "subject_Taught", nullable = false)
+    @Column(name = "subject_taught", nullable = false)
     private String subjectTaught;
 
     @Column(name = "level",nullable = false)
