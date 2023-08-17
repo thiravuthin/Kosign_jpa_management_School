@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    username: postgres
+    password: vuthin
+    url: jdbc:postgresql://localhost:5432/kosign_jpa_management_shool
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
+server:
+  port: 9000
