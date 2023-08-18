@@ -1,19 +1,23 @@
-package com.kosign.school_management.domain.student;
+package com.kosign.school_management.domain.entity_student;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
-@Table(name = "student")
+@Table(name = "student_tb")
+@Getter
+@Setter
 public class Student {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "student_id")
     private Long id;
-    @Column(name = "f_name")
+    @Column(name = "first_name")
     private String fName;
-    @Column(name = "l_name")
+    @Column(name = "last_name")
     private String lName;
     @Column(name = "gender")
     private String gender;
