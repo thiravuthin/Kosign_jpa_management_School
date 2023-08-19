@@ -1,4 +1,4 @@
-package com.kosign.school_management.domain.class_list;
+package com.kosign.school_management.domain.entity_classlist;
 
 import jakarta.persistence.*;
 

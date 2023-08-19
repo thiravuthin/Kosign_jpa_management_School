@@ -1,14 +1,16 @@
 package com.kosign.school_management.service.teacher;
 
-import com.kosign.school_management.domain.teacher.Teacher;
+import com.kosign.school_management.payload.teacher.TeacherRequest;
 
 public interface TeacherService {
-    Object getAllTeacher();
+    Object getTeachers();
 
-    Object getById(Long id);
+    Object getTeacherById(Long id);
 
 
     void delete(Long id);
 
-    Object insert(Teacher teacher);
+    Object insertNewTeacher(TeacherRequest teacherRequest);
+
+    Object updateTeacherById(Long id, TeacherRequest teacherRequest);
 }

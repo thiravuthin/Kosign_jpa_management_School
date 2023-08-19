@@ -1,15 +1,15 @@
-package com.kosign.school_management.domain.class_school;
+package com.kosign.school_management.domain.entity_class;
 
-import com.kosign.school_management.domain.class_list.ClassList;
-import com.kosign.school_management.domain.classroom.Classroom;
-import com.kosign.school_management.domain.subject.Subject;
-import com.kosign.school_management.domain.teacher.Teacher;
+import com.kosign.school_management.domain.entity_classlist.ClassList;
+import com.kosign.school_management.domain.entity_classroom.Classroom;
+import com.kosign.school_management.domain.entity_subject.Subject;
+import com.kosign.school_management.domain.entity_teacher.Teacher;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "tb_class")
+@Table(name = "class_tb")
 @Getter
 @Setter
 public class Class {
