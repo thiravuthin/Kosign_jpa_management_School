@@ -19,8 +19,8 @@ public class TeacherController {
     private final TeacherService teacherService;
 
     @GetMapping("/teachers")
-    public ResponseEntity<?> getAllTeacher(  ) {
-        var response =  ApiResponse.builder()
+    public ResponseEntity<?> getAllTeacher() {
+        ApiResponse<?> response =  ApiResponse.builder()
                 .status(StatusCode.SUCCESS)
                 .data(teacherService.getTeachers())
                 .build();
