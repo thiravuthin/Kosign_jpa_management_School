@@ -1,4 +1,4 @@
-package com.kosign.school_management.domain.entity_student;
+package com.kosign.school_management.domain.entity.student;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -16,9 +16,9 @@ public class Student {
     @Column(name = "student_id")
     private Long id;
     @Column(name = "first_name")
-    private String fName;
+    private String  firstName;
     @Column(name = "last_name")
-    private String lName;
+    private String lastName;
     @Column(name = "gender")
     private String gender;
     @Column(name = "date_of_birth")

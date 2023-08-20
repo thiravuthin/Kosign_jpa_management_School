@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TeacherResponse {
+public class TeacherResponse <T>{
 
     @JsonProperty("teacher_id")
     private Long teacherId;

@@ -26,8 +26,8 @@ public class StudentController {
 
     }
     @GetMapping("/student/{id}")
-    public ResponseEntity<?> getStudentById(@PathVariable Integer id){
-        return null;
+    public Object getStudentById(@PathVariable Long id){
+        return studentService.findStudentById(id);
     }
 
 

@@ -20,7 +20,7 @@ public class TeacherController {
 
     @GetMapping("/teachers")
     public ResponseEntity<?> getAllTeacher() {
-        ApiResponse<?> response =  ApiResponse.builder()
+        ApiResponse response =  ApiResponse.builder()
                 .status(StatusCode.SUCCESS)
                 .data(teacherService.getTeachers())
                 .build();
