@@ -1,9 +1,9 @@
-package com.kosign.school_management.domain.entity_class;
+package com.kosign.school_management.domain.entity.ofclass;
 
-import com.kosign.school_management.domain.entity_classlist.ClassList;
-import com.kosign.school_management.domain.entity_classroom.Classroom;
-import com.kosign.school_management.domain.entity_subject.Subject;
-import com.kosign.school_management.domain.entity_teacher.Teacher;
+import com.kosign.school_management.domain.entity.classlist.ClassList;
+import com.kosign.school_management.domain.entity.classroom.Classroom;
+import com.kosign.school_management.domain.entity.subject.Subject;
+import com.kosign.school_management.domain.entity.teacher.Teacher;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

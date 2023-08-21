@@ -1,6 +1,6 @@
 package com.kosign.school_management.service.teacher;
 
-import com.kosign.school_management.domain.entity_teacher.Teacher;
+import com.kosign.school_management.domain.entity.teacher.Teacher;
 import com.kosign.school_management.payload.teacher.TeacherRequest;
 import com.kosign.school_management.payload.teacher.TeacherResponse;
 import com.kosign.school_management.repository.teacher.TeacherRepository;
@@ -14,7 +14,6 @@ import java.util.List;
 public class TeacherServiceImpl implements TeacherService {
 
     private final TeacherRepository teacherRepository;
-
     public Object getTeachers() {
 
         List<Teacher> teacherList = teacherRepository.findAll();
@@ -29,7 +28,6 @@ public class TeacherServiceImpl implements TeacherService {
                                 .subjectTaught(teacher.getSubjectTaught())
                                 .build()
                 ).toList();
-
     }
 
     @Override
@@ -41,7 +39,7 @@ public class TeacherServiceImpl implements TeacherService {
     public Object insertNewTeacher(TeacherRequest teacherRequest) {
         /**
          * Builder = insert new object or set new object
-         */
+         **/
         Teacher teacher = Teacher.builder()
                 .firstName(teacherRequest.firstName())
                 .lastName(teacherRequest.lastName())

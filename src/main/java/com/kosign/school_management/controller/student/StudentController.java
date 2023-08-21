@@ -2,13 +2,11 @@ package com.kosign.school_management.controller.student;
 
 import com.kosign.school_management.common.api.ApiResponse;
 import com.kosign.school_management.common.api.StatusCode;
+import com.kosign.school_management.domain.entity.student.Student;
 import com.kosign.school_management.service.student.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -26,9 +24,24 @@ public class StudentController {
 
     }
     @GetMapping("/student/{id}")
-    public ResponseEntity<?> getStudentById(@PathVariable Integer id){
-        return null;
+    public Object getStudentById(@PathVariable Long id){
+        return studentService.findStudentById(id);
     }
 
+    @PostMapping("/student")
+    public Object insertNewStudent(@RequestBody Student student){
+        return  studentService.insert(student);
+    }
+
+    @DeleteMapping("/student/{id}")
+    public void deleteStudentById(@PathVariable Long id){
+         studentService.deleteStudentById(id);
+    }
+
+    @PutMapping("/student")
+    public Object updateStudentById(@PathVariable Long id, @RequestBody Student student){
+
+        return studentService.updateById(id,student);
+    }
 
 }
