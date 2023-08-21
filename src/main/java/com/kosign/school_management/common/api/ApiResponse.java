@@ -18,8 +18,8 @@ public class ApiResponse<T> {
     private T data;
 
     @Builder
-    public ApiResponse(StatusCode status, T data) {
-        this.apiStatus = new ApiStatus(status.getCode(), status.getMessage());
+    public ApiResponse(HttpStatusCode status, T data) {
+        this.apiStatus = new ApiStatus(status.getValue(), status.getReasonPhrase());
         this.data = data;
     }
 }

@@ -1,7 +1,7 @@
 package com.kosign.school_management.controller.student;
 
 import com.kosign.school_management.common.api.ApiResponse;
-import com.kosign.school_management.common.api.StatusCode;
+import com.kosign.school_management.common.api.HttpStatusCode;
 import com.kosign.school_management.domain.entity.student.Student;
 import com.kosign.school_management.service.student.StudentService;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +18,7 @@ public class StudentController {
     @GetMapping("/students")
     public ResponseEntity<?> getAllStudent(){
         ApiResponse<Object> response =  ApiResponse.builder()
-                .status(StatusCode.SUCCESS)
+                .status(HttpStatusCode.SUCCESS)
                 .data(studentService.getAllStudent())
                 .build();
         return ResponseEntity.ok().body(response);

@@ -1,9 +1,13 @@
 package com.kosign.school_management.domain.entity.subject;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Table(name = "subject_tb")
+@Table(name = "tb_subject")
+@Getter
+@Setter
 public class Subject {
 
     @Id

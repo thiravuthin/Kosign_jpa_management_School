@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "class_tb")
+@Table(name = "tb_class")
 @Getter
 @Setter
 public class Class {

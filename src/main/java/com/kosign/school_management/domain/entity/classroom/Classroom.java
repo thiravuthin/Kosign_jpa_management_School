@@ -3,7 +3,7 @@ package com.kosign.school_management.domain.entity.classroom;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "class_room_tb")
+@Table(name = "tb_class_room")
 public class Classroom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

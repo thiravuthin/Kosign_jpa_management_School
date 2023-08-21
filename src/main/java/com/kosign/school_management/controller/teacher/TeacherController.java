@@ -1,13 +1,10 @@
 package com.kosign.school_management.controller.teacher;
 
 import com.kosign.school_management.common.api.ApiResponse;
-import com.kosign.school_management.common.api.ApiStatus;
-import com.kosign.school_management.common.api.StatusCode;
+import com.kosign.school_management.common.api.HttpStatusCode;
 import com.kosign.school_management.payload.teacher.TeacherRequest;
 import com.kosign.school_management.service.teacher.TeacherService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +18,7 @@ public class TeacherController {
     @GetMapping("/teachers")
     public ResponseEntity<?> getAllTeacher() {
         ApiResponse response =  ApiResponse.builder()
-                .status(StatusCode.SUCCESS)
+                .status(HttpStatusCode.SUCCESS)
                 .data(teacherService.getTeachers())
                 .build();
         return ResponseEntity.ok().body(response);
@@ -30,7 +27,7 @@ public class TeacherController {
     @GetMapping("/teacher/{id}")
     public ResponseEntity<?> getTeacherByNameOrId(@PathVariable Long id){
         ApiResponse apiResponse = ApiResponse.builder()
-                .status(StatusCode.SUCCESS)
+                .status(HttpStatusCode.SUCCESS)
                 .data(teacherService.getTeacherById(id))
                 .build();
         return ResponseEntity.ok().body(apiResponse);

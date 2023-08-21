@@ -3,7 +3,7 @@ package com.kosign.school_management.domain.entity.classlist;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "class_list_tb")
+@Table(name = "tb_class_list")
 public class ClassList {
     @Id
 @GeneratedValue(strategy = GenerationType.SEQUENCE)
