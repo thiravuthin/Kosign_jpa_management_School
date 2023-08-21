@@ -1,5 +1,6 @@
 package com.kosign.school_management.service.student;
 import com.kosign.school_management.domain.entity.student.Student;
+import com.kosign.school_management.exception.ResourceNotFoundException;
 import com.kosign.school_management.repository.student.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,8 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Object findStudentById(Long id) {
-        return studentRepository.findById(id);
+        return studentRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("The student Id not is not found! : " + id)
+        );
     }
 
     @Override

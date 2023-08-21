@@ -28,8 +28,12 @@ public class TeacherController {
     }
 
     @GetMapping("/teacher/{id}")
-    public Object getTeacherByNameOrId(@PathVariable Long id){
-        return teacherService.getTeacherById(id);
+    public ResponseEntity<?> getTeacherByNameOrId(@PathVariable Long id){
+        ApiResponse apiResponse = ApiResponse.builder()
+                .status(StatusCode.SUCCESS)
+                .data(teacherService.getTeacherById(id))
+                .build();
+        return ResponseEntity.ok().body(apiResponse);
     }
 
     @PostMapping("/teacher")

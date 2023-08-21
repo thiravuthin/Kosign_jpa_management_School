@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class StudentController {
 
     private final StudentService studentService;
+
     @GetMapping("/students")
     public ResponseEntity<?> getAllStudent(){
         ApiResponse<Object> response =  ApiResponse.builder()
@@ -25,7 +26,7 @@ public class StudentController {
     }
     @GetMapping("/student/{id}")
     public Object getStudentById(@PathVariable Long id){
-        return studentService.findStudentById(id);
+        return studentService.findStudentById(id) ;
     }
 
     @PostMapping("/student")
