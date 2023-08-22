@@ -25,8 +25,9 @@ public enum HttpStatusCode {
 
     NOT_FOUND(404, HttpStatus.Series.CLIENT_ERROR, "Not Found"),
 
-    ID_NOT_FOUND(404, HttpStatus.Series.CLIENT_ERROR, "ID NOT Found");
+    ID_NOT_FOUND(404, HttpStatus.Series.CLIENT_ERROR, "ID NOT Found"),
 
+    INTERNAL_SERVER_ERROR(500,HttpStatus.Series.SERVER_ERROR, "Internal Server Error");
 
     private final int value;
     private final HttpStatus.Series series;

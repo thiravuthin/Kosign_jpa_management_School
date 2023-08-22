@@ -57,7 +57,6 @@ public class TeacherServiceImpl implements TeacherService {
             teacher.setLevel(teacherRequest.level());
             teacher.setSubjectTaught(teacherRequest.subjectTaught());
         */
-        System.err.println(teacher);
         teacherRepository.save(teacher);
         return teacher;
     }

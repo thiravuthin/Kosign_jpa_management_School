@@ -1,8 +1,7 @@
 package com.kosign.school_management.domain.entity.student;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.sql.Date;
 
@@ -10,6 +9,9 @@ import java.sql.Date;
 @Table(name = "tb_student")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Student {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)

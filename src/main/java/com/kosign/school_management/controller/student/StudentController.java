@@ -3,6 +3,7 @@ package com.kosign.school_management.controller.student;
 import com.kosign.school_management.common.api.ApiResponse;
 import com.kosign.school_management.common.api.HttpStatusCode;
 import com.kosign.school_management.domain.entity.student.Student;
+import com.kosign.school_management.payload.student.StudentRequest;
 import com.kosign.school_management.service.student.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -22,16 +23,23 @@ public class StudentController {
                 .data(studentService.getAllStudent())
                 .build();
         return ResponseEntity.ok().body(response);
-
     }
     @GetMapping("/student/{id}")
-    public Object getStudentById(@PathVariable Long id){
-        return studentService.findStudentById(id) ;
+    public ResponseEntity<?> getStudentById(@PathVariable Long id){
+        ApiResponse<Object> response =  ApiResponse.builder()
+                .status(HttpStatusCode.SUCCESS)
+                .data(studentService.findStudentById(id))
+                .build();
+         return ResponseEntity.ok().body(response);
     }
 
     @PostMapping("/student")
-    public Object insertNewStudent(@RequestBody Student student){
-        return  studentService.insert(student);
+    public ResponseEntity<?> insertNewStudent(@RequestBody StudentRequest studentRequest){
+        ApiResponse<Object> response =  ApiResponse.builder()
+                .status(HttpStatusCode.SUCCESS)
+                .data(studentService.insert(studentRequest))
+                .build();
+        return ResponseEntity.ok().body(response);
     }
 
     @DeleteMapping("/student/{id}")
