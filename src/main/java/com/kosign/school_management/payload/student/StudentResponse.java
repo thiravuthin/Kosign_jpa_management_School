@@ -1,6 +1,5 @@
 package com.kosign.school_management.payload.student;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Builder;
@@ -13,6 +12,7 @@ import java.sql.Date;
 @Getter
 @Setter
 @Builder
+//@JsonNaming convert field entity in json to stack case
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @NoArgsConstructor
 public class StudentResponse {
@@ -22,13 +22,15 @@ public class StudentResponse {
     private String gender;
     private Date dateOfBirth;
     private Integer groupYear;
+    private Integer status;
     @Builder
-    public StudentResponse(Long studentId, String firstName, String lastName, String gender, Date dateOfBirth, Integer groupYear) {
+    public StudentResponse(Long studentId, String firstName, String lastName, String gender, Date dateOfBirth, Integer groupYear, Integer status) {
         this.studentId = studentId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
         this.dateOfBirth = dateOfBirth;
         this.groupYear = groupYear;
+        this.status = status;
     }
 }

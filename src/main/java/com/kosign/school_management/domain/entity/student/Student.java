@@ -1,6 +1,5 @@
 package com.kosign.school_management.domain.entity.student;
 
-import com.kosign.school_management.enums.Status;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,16 +26,16 @@ public class Student {
     @Column(name = "group_year")
     private Integer groupYear;
     @Column(name = "status", nullable = false, columnDefinition = "char(1)")
-    private String status;
+    private Integer status;
 
     @Builder
-    public Student(Long id, String firstName, String lastName, String gender, Date dateOfBirth, Integer groupYear, String status) {
+    public Student(Long id, String firstName, String lastName, String gender, Date dateOfBirth, Integer groupYear, Integer status) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
         this.dateOfBirth = dateOfBirth;
         this.groupYear = groupYear;
-        this.status = status;
+        this.status= status;
     }
 }

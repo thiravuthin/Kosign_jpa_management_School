@@ -1,5 +1,6 @@
 package com.kosign.school_management.vuthin_Best;
 
+import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -24,5 +25,15 @@ public class NoSuchElementFoundException extends ResponseStatusException {
 
     protected NoSuchElementFoundException(HttpStatusCode status, String reason, Throwable cause, String messageDetailCode, Object[] messageDetailArguments) {
         super(status, reason, cause, messageDetailCode, messageDetailArguments);
+    }
+
+    /**
+     * Return a code to use to resolve the problem "title" for this exception
+     * through a {@link MessageSource}.
+     * <p>By default this is initialized via {@link #getDefaultTitleMessageCode(Class)}.
+     */
+    @Override
+    public String getTitleMessageCode() {
+        return super.getTitleMessageCode();
     }
 }
