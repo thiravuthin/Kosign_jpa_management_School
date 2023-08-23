@@ -18,9 +18,9 @@ public class StudentServiceImpl implements StudentService {
         private final StudentRepository studentRepository;
 
     @Override
-    public Object getAllStudent() {
-        List<Student> studentList = studentRepository.findAll();
-        return studentList.stream().map(student ->
+    public Optional<Object> getAllStudent() {
+        var studentList = studentRepository.findAll();
+        return Optional.of(studentList.stream().map(student ->
                 StudentResponse.builder()
                         .studentId(student.getId())
                         .firstName(student.getFirstName())
@@ -28,7 +28,7 @@ public class StudentServiceImpl implements StudentService {
                         .gender(student.getGender())
                         .dateOfBirth(student.getDateOfBirth())
                         .groupYear(student.getGroupYear())
-                        .build()).toList();
+                        .build()).toList());
     }
 
     @Override
@@ -68,13 +68,32 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void deleteStudentById(Long id) {
-        studentRepository.deleteById(id);
+    public Optional<Student> deleteStudentById(Long id )  {
+
+//        System.err.println(id);
+//        var st = studentRepository.deleteById(id, Status.NORMAL.getValue()).orElseThrow(()-> new MyResourceNotFoundException("Student id not found"));
+//        st.setStatus(Status.DELETE.getValue());
+//        System.err.println(Status.DELETE.getValue());
+//        studentRepository.save(st);
+
+       Optional<Student> findStudent = Optional.of(studentRepository.findById(id).orElseThrow(() -> new MyResourceNotFoundException("The Student Id not found!"+ id)));        studentRepository.deleteById(id);
+       studentRepository.deleteById(id);
+        return findStudent;
     }
 
     @Override
-    public Object updateById(Long id, Student student) {
-        return studentRepository.findById(id).orElseThrow(() ->
+    public void updateById(Long id, StudentRequest studentRequest) {
+        var student= studentRepository.findById(id).orElseThrow(() ->
                 new MyResourceNotFoundException("not found id :" + id));
+
+        student.setFirstName(studentRequest.getFirstName());
+        student.setLastName(studentRequest.getLastName());
+        student.setGender(studentRequest.getGender());
+        student.setDateOfBirth(studentRequest.getDateOfBirth());
+        student.setGroupYear(studentRequest.getGroupYear());
+
+         studentRepository.save(student);
+
+
     }
 }

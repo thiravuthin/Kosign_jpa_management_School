@@ -2,10 +2,12 @@ package com.kosign.school_management.exception;
 
 
 import com.kosign.school_management.common.api.ApiResponse;
-import com.kosign.school_management.common.api.HttpStatusCode;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
@@ -39,5 +41,14 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<ErrorMessageResponse>(message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-
+    @Override
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+       ErrorMessageResponse response = new ErrorMessageResponse(
+               HttpStatus.BAD_REQUEST.value(),
+               new Date(),
+               ex.getMessage(),
+               request.getDescription(false)
+       );
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
 }

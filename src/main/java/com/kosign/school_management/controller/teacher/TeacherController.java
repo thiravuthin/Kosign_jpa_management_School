@@ -4,6 +4,7 @@ import com.kosign.school_management.common.api.ApiResponse;
 import com.kosign.school_management.common.api.HttpStatusCode;
 import com.kosign.school_management.payload.teacher.TeacherRequest;
 import com.kosign.school_management.service.teacher.TeacherService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,7 +46,7 @@ public class TeacherController {
     }
 
     @PutMapping("/teacher/{id}")
-    public Object updateTeacherById(@PathVariable Long id, @RequestBody TeacherRequest teacherRequest){
+    public Object updateTeacherById(@PathVariable Long id,@Valid @RequestBody TeacherRequest teacherRequest){
         return teacherService.updateTeacherById(id, teacherRequest);
     }
 
