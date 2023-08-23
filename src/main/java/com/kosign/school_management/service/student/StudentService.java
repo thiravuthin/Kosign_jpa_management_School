@@ -2,8 +2,9 @@ package com.kosign.school_management.service.student;
 
 import com.kosign.school_management.domain.entity.student.Student;
 import com.kosign.school_management.payload.student.StudentRequest;
-import com.kosign.school_management.payload.student.StudentResponse;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 @Repository
 public interface StudentService {
@@ -14,7 +15,7 @@ public interface StudentService {
 
     Object insert(StudentRequest studentRequest);
 
-    void deleteStudentById(Long id);
+    Optional<Student> deleteStudentById(Long id);
 
-    Object updateById(Long id, Student student);
+    void updateById(Long id, StudentRequest student);
 }

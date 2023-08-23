@@ -12,8 +12,9 @@ import java.sql.Date;
 @Getter
 @Setter
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class StudentRequest {
-    @NotBlank
+public class StudentRequest  {
+    @NotBlank(message = ": first name must be not blank!")
+
     private String  firstName;
     @NotBlank
     private String lastName;
@@ -21,6 +22,7 @@ public class StudentRequest {
     private String gender;
     @NotBlank
     private Date dateOfBirth;
-    @NotBlank( )
+    @NotNull
     private Integer groupYear;
+
 }

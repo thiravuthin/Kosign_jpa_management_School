@@ -1,5 +1,6 @@
 package com.kosign.school_management.domain.entity.student;
 
+import com.kosign.school_management.enums.Status;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,8 +11,6 @@ import java.sql.Date;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Student {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -27,6 +26,17 @@ public class Student {
     private Date dateOfBirth;
     @Column(name = "group_year")
     private Integer groupYear;
+    @Column(name = "status", nullable = false, columnDefinition = "char(1)")
+    private String status;
 
-
+    @Builder
+    public Student(Long id, String firstName, String lastName, String gender, Date dateOfBirth, Integer groupYear, String status) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
+        this.groupYear = groupYear;
+        this.status = status;
+    }
 }
