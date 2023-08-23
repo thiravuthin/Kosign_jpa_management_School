@@ -46,7 +46,6 @@ public class StudentServiceImpl implements StudentService {
     }
     @Override
     public Object insert(StudentRequest studentRequest) {
-
          Student studentOptional = Student.builder()
                  .firstName(studentRequest.getFirstName())
                  .lastName(studentRequest.getLastName())
@@ -55,7 +54,7 @@ public class StudentServiceImpl implements StudentService {
                  .groupYear(studentRequest.getGroupYear())
                  .build();
         studentRepository.save(studentOptional);
-
+        System.out.println(studentOptional);
                var studentResponse=  StudentResponse.builder()
                        .studentId(studentOptional.getId())
                         .firstName(studentRequest.getFirstName())
@@ -64,7 +63,7 @@ public class StudentServiceImpl implements StudentService {
                         .dateOfBirth(studentRequest.getDateOfBirth())
                         .groupYear(studentRequest.getGroupYear())
                         .build();
-
+        System.out.println(studentResponse);
              return   studentResponse ;
     }
 
